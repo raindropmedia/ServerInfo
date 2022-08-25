@@ -34,5 +34,17 @@ namespace ServerInfo.Properties {
                 this["ShowMessage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Application {
+            get {
+                return ((string)(this["Application"]));
+            }
+            set {
+                this["Application"] = value;
+            }
+        }
     }
 }
