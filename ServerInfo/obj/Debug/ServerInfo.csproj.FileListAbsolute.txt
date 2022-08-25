@@ -14,7 +14,7 @@ C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\bin\Debug
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\bin\Debug\ServerInfo.pdb
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.csproj.AssemblyReference.cache
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.csproj.SuggestedBindingRedirects.cache
-C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.Form1.resources
+C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.Configuration.resources
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.Properties.Resources.resources
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.csproj.GenerateResource.cache
 C:\Users\larsemmerich\source\repos\raindropmedia\ServerInfo\ServerInfo\obj\Debug\ServerInfo.csproj.CoreCompileInputs.cache
