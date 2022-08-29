@@ -46,5 +46,41 @@ namespace ServerInfo.Properties {
                 this["Application"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string comPort {
+            get {
+                return ((string)(this["comPort"]));
+            }
+            set {
+                this["comPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string comName {
+            get {
+                return ((string)(this["comName"]));
+            }
+            set {
+                this["comName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool comPortOpen {
+            get {
+                return ((bool)(this["comPortOpen"]));
+            }
+            set {
+                this["comPortOpen"] = value;
+            }
+        }
     }
 }

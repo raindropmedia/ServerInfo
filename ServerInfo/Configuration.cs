@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ServerInfo.Properties;
+using System;
 using System.Windows.Forms;
-using System.Management;
 
 namespace ServerInfo
 {
@@ -15,10 +8,14 @@ namespace ServerInfo
     {
 
         Globalfunc globalfunc = new Globalfunc();
+        SerialPortProgram serialPortProgram = new SerialPortProgram();
+        byte counter1 = 0;
 
         public Configuration()
         {
             InitializeComponent();
+            comPortSelect.Items.Add(Settings.Default.comName);
+            comPortSelect.SelectedIndex = 0;
         }
 
         private void LoadSettings(object sender, EventArgs e)
@@ -59,10 +56,75 @@ namespace ServerInfo
         private void listipButton_Click(object sender, EventArgs e)
         {
             globalfunc.ListIP();
-            
+
         }
 
+        private void startAppButton_Click(object sender, EventArgs e)
+        {
+            globalfunc.StartApp(Settings.Default.Application);
+        }
 
+        private void getCpuInfoButton_Click(object sender, EventArgs e)
+        {
+            globalfunc.GetCpuInfo();
+        }
 
+        private void getDiskInfoButton_Click(object sender, EventArgs e)
+        {
+            globalfunc.GetDiskInfo();
+        }
+
+        private void getDisplayInfoButton_Click(object sender, EventArgs e)
+        {
+            globalfunc.GetDisplayInfo();
+        }
+
+        private void readComPortsButton_Click(object sender, EventArgs e)
+        {
+            serialPortProgram.GetListComPorts();
+            //serialPortProgram.portList;
+            String[] comPorts = serialPortProgram.portList.ToArray();
+            comPortSelect.Items.Clear();
+            comPortSelect.Items.AddRange(comPorts);
+        }
+
+        public void connectComButton_Click(object sender, EventArgs e)
+        {
+            //Settings.Default.comName = comPortSelect.SelectedItem.ToString();
+            //Settings.Default.comPort = serialPortProgram.portnames[comPortSelect.SelectedIndex].ToString();
+            connectCom();
+            MessageBox.Show(Settings.Default.comName);
+            //MessageBox.Show(serialPortProgram.portnames[comPortSelect.SelectedIndex]);
+        }
+
+        public void connectCom()
+        {
+            serialPortProgram.StartComPort();
+            MessageBox.Show(Settings.Default.comName);
+        }
+
+        private void ChangedComIndex(object sender, EventArgs e)
+        {
+            if (comPortSelect.SelectedItem.ToString() != Settings.Default.comName)
+            {
+                Settings.Default.comName = comPortSelect.SelectedItem.ToString();
+                Settings.Default.comPort = serialPortProgram.portnames[comPortSelect.SelectedIndex].ToString();
+                MessageBox.Show(Settings.Default.comName + Settings.Default.comPort);
+            }
+        }
+        public void sendHelloButton_Click(object sender, EventArgs e)
+        {
+            byte[] terminator = { 0xff, 0xff, 0xff };
+            counter1++;
+            string command = "t1.txt=" + '\u0022' + "Hello world " + counter1 + '\u0022';
+            serialPortProgram.ComPort.Write(command);
+            serialPortProgram.ComPort.Write(terminator, 0, terminator.Length);
+            //Console.WriteLine(command + terminator);
+
+            command = "n1.val=" + counter1;
+            serialPortProgram.ComPort.Write(command);
+            serialPortProgram.ComPort.Write(terminator, 0, terminator.Length);
+            //Console.WriteLine(command + terminator);
+        }
     }
 }

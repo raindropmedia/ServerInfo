@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Text;
-using System.IO;
 
 namespace ServerInfo
 {
+
     internal static class Program
     {
         /// <summary>
@@ -17,6 +12,7 @@ namespace ServerInfo
         [STAThread]
         static void Main()
         {
+            //new SerialPortProgram();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Configuration());
